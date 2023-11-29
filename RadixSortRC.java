@@ -44,11 +44,9 @@ public class RadixSortRC {
             
             for(int i = 0; i<copyArray.length;i++) {
             	
-            	
-            	
             	copyArray[runningCounts[(input[i]/divisor)%RADIX_BASE]] = input[i];
             	
-            	runningCounts[(input[i]/divisor)%RADIX_BASE]++;
+            	runningCounts[(input[i]/divisor)%RADIX_BASE]= 1 + runningCounts[(input[i]/divisor)%RADIX_BASE];
             }
             
             //Copy the items in the second array accordingly
