@@ -1,7 +1,4 @@
-package Lab9;
-
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class RadixSortQueue {
     // Used for finding the queue
@@ -9,8 +6,7 @@ public class RadixSortQueue {
     static final int[] POWERS_OF_TEN = {1, 10, 100};
     Queue[] queues;
     
-    public RadixSortQueue()
-    {
+    public RadixSortQueue(){
         generateQueues();  
     }
 
@@ -20,7 +16,7 @@ public class RadixSortQueue {
     private void generateQueues() {
         queues = new Queue[RADIX_BASE]; 
         for(int i = 0; i < RADIX_BASE; i++) 
-            queues[i] = new LinkedList<Integer>();
+        	queues[i] = new LinkedList<Integer>();
     }
     
     /**
@@ -40,7 +36,15 @@ public class RadixSortQueue {
             
             //Your code goes here
             //Put items back to the array from the queues
-            
+            int currentIndex = 0;
+            for(Queue queue: queues) {
+            	Iterator itr = queue.iterator();
+            	while(itr.hasNext()) {
+            		//System.out.println(itr.next());
+            		input[currentIndex] = (int) itr.next();
+            		currentIndex++;
+            	}
+            }
             
         }
         
@@ -60,9 +64,11 @@ public class RadixSortQueue {
     }
     
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
         int[]arr = {100,200,333,431,198};
         RadixSortQueue r = new RadixSortQueue();
         r.sort(arr);
+        for(int item:arr) {
+        	System.out.println(item+" ");
+        }
     }
 }
