@@ -67,8 +67,5 @@ public class RadixSortQueue {
         int[]arr = {100,200,333,431,198};
         RadixSortQueue r = new RadixSortQueue();
         r.sort(arr);
-        for(int item:arr) {
-        	System.out.println(item+" ");
-        }
     }
 }
